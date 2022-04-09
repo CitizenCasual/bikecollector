@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +9,17 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href=""
+    href="{% static 'css/images/other-bike.svg' %}"
   >
   <title>Bike Collector</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
 </head>
 <body>
   <header>
     <div class="header-logo-container">
-      <a href="/">
-        <img 
-          src="" 
-          alt="The Bike Collector Logo"
-        >
-      </a>
+      <a href="/"><p>Bike Collector</p></a>
     </div>
     <nav>
       <ul>
