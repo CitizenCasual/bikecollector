@@ -21,6 +21,9 @@
   <div class="bike-details">
     <h2>A {{ bike.make }} {{ bike.model }} {{ bike.type }} bike from {{ bike.year }}</h2>
     <p>{{ bike.description }}</p>
+    <div class="bike-actions">
+      <a href="{% url 'bikes_update' bike.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'bikes_delete' bike.id %}" class="btn danger">Delete</a>
   </div>
 </section>
 
