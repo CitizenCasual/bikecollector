@@ -14,4 +14,6 @@ def bikes_index(request):
   bikes = Bike.objects.all()
   return render(request, 'bikes/index.html', { 'bikes': bikes })
 
-
+def details(request, bike_id):
+  bikes = Bike.objects.get(id=bike_id)
+  return render(request, 'bikes/details.html', { 'bike': bikes })
