@@ -37,3 +37,6 @@ class Maintenance(models.Model):
 
   def __str__(self):
     return f"{self.get_task_display()} on {self.date}"
+  
+  class Meta:
+    ordering = ['-date']
