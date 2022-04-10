@@ -2,11 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link 
-  rel="stylesheet" 
-  type="text/css" 
-  href="{% static 'css/details.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/details.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -26,5 +22,33 @@
       <a href="{% url 'bikes_delete' bike.id %}" class="btn danger">Delete</a>
   </div>
 </section>
+
+<div class="maintenance-tool-container">
+  <section class="maintenance">
+    <div class="subsection-title">
+      <h2>Past Maintenance</h2>
+    </div>
+    <h3>Add Maintenance</h3>
+<form method="post" class="subsection-content">
+  {% csrf_token %}
+  {{ maintenance_form.as_p }}
+  <button type="submit" class="btn submit">Add Maintenance</button>
+</form>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Task</th></tr>
+      </thead>
+      <tbody>
+        {% for maintenance in bike.maintenance_set.all %}
+          <tr>
+            <td>{{maintenance.date}}</td>
+            <td>{{maintenance.get_task_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
+
 
 {% endblock %}

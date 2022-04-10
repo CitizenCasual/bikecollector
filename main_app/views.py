@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from main_app.forms import MaintenanceForm
 from .models import Bike
+from .forms import MaintenanceForm
 
 
 # Create your views here.
@@ -17,7 +20,8 @@ def bikes_index(request):
 
 def details(request, bike_id):
   bikes = Bike.objects.get(id=bike_id)
-  return render(request, 'bikes/details.html', { 'bike': bikes })
+  maintenance_form = MaintenanceForm()
+  return render(request, 'bikes/details.html', { 'bike': bikes, 'maintenance_form': maintenance_form })
 class BikeCreate(CreateView):
   model = Bike
   fields = '__all__'
