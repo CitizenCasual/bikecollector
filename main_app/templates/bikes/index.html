@@ -14,7 +14,7 @@
 <section class="card-container">
   {% for bike in bikes %}
     <div class="card">
-      <a href="/bikes/{{ bike.id }}">
+      <a href="{% url 'details' bike.id %}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
@@ -23,11 +23,8 @@
           >
         </div>
         <h2 class="card-title">{{ bike.make }}</h2>
-       
           <p>{{ bike.model }}</p>
-        
           <p>A {{ bike.type }} bike.</p>
-        
         <p><small>{{ bike.description }}</small></p>
       </div>
     </div>
