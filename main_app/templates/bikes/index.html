@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bike-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Bike List</h1>
+</section>
+
+<section class="card-container">
+  {% for bike in bikes %}
+    <div class="card">
+      <a href="/bikes/{{ bike.id }}"
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'css/images/other-bike.svg' %}" 
+            alt="A skater boy cat"
+          >
+        </div>
+        <h2 class="card-title">{{ bike.make }}</h2>
+       
+          <p>{{ bike.model }}</p>
+        
+          <p>A {{ bike.type }} bike.</p>
+        
+        <p><small>{{ bike.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
