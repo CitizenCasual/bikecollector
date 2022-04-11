@@ -1,3 +1,4 @@
+from ast import Del
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -52,3 +53,12 @@ class ToolList(ListView):
 
 class ToolDetail(DetailView):
   model = Tool
+
+class ToolUpdate(UpdateView):
+  model = Tool
+  fields = '__all__'
+  success_url = '/tools/'
+
+class ToolDelete(DeleteView):
+  model = Tool
+  success_url = '/tools/'
