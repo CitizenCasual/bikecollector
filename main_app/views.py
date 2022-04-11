@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 
 from main_app.forms import MaintenanceForm
 from .models import Bike, Tool
@@ -45,3 +46,9 @@ class BikeDelete(DeleteView):
 class  ToolCreate(CreateView):
   model = Tool
   fields = '__all__'
+
+class ToolList(ListView):
+  model = Tool
+
+class ToolDetail(DetailView):
+  model = Tool
