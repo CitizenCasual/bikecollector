@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from main_app.forms import MaintenanceForm
-from .models import Bike
+from .models import Bike, Tool
 from .forms import MaintenanceForm
 
 
@@ -41,3 +41,7 @@ class BikeUpdate(UpdateView):
 class BikeDelete(DeleteView):
   model = Bike
   success_url = '/bikes/'
+
+class  ToolCreate(CreateView):
+  model = Tool
+  fields = '__all__'
